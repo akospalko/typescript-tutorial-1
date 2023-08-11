@@ -1,5 +1,6 @@
-// Type
-export const Type = ():void => {
+// Type Aliases
+export const TypeAliases = ():void => {
+  // type aliases with obj structure
   // define type annotation (property type blueprint for obj literals) 
   type Band = {
     name: string,
@@ -34,39 +35,9 @@ export const Type = ():void => {
 
   console.log(greetBand(thebeatles));
 
-  // define interface for obj
-  interface BandI {
-    name?: string,
-    active: boolean,
-    members: (string)[]  
-  }
-
-  const nirvana: BandI = {
-    // name?: 'Nirvana',
-    active: false,
-    members: ['Curt', 'Krist', 'Dave'],
-  }
-
-  // experiment with type narrowing 
-  const greetBand2 = (band: BandI) => {
-    if(band.name) {
-      return `Welcome ${band.name.toUpperCase()}` // if band instance has name prop
-    } 
-    return 'Welcome unknown artist!'; // name prop is unavailable
-  }
-
-  // test out interface and type narrowing 
-  console.log(greetBand2(nirvana));
-} 
-
-// Type Aliases
-export const TypeAliases = ():void => {
-  // union
+  // combine type aliases with union type
   type stringOrNumber = string | number;
-  // obj
-  type Band = {
-    name: string,
-    active: boolean,
-    members: string[]
-  }
-}
+  let age: stringOrNumber = 5;
+  age = 'five'
+  // age = false // error - no bool allowed
+} 

@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TypeAliases = exports.Type = void 0;
 // Type Aliases
-const Type = () => {
+export const TypeAliases = () => {
     let thepolice = {
         name: 'The Police',
         active: false,
@@ -24,8 +21,7 @@ const Type = () => {
         return `Let's welcome ${band.name}!`;
     };
     console.log(greetBand(thebeatles));
+    let age = 5;
+    age = 'five';
+    // age = false // error - no bool allowed
 };
-exports.Type = Type;
-const TypeAliases = () => {
-};
-exports.TypeAliases = TypeAliases;

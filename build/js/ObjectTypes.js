@@ -1,14 +1,12 @@
-"use strict";
 // Object types
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Enum = exports.Interface = exports.Objects = exports.Tuples = exports.Arrays = void 0;
-// Arrays 
-const Arrays = () => {
+// Arrays: type[] || Array<type>
+export const Arrays = () => {
     let lettersArr = ['a', 'b', 'c']; // string
+    let stringArr = ['another', 'way', 'to', 'annotate', 'array', 'type'];
     let techsArr = ['JS', 'React', 'TS', 1]; // string | number
     let mixedArr = [1, 'Love', 'TS', true]; // string | number | boolean;
-    // reassign arrays
-    // lettersArr[0] = 5; // type number -> string - error
+    // lettersArr[0] = 5; // error - type number -> string 
+    stringArr = ['reassign', 'whole', 'array'];
     lettersArr[1] = 'Rick'; // ok
     techsArr[0] = 'I'; // string -> number - ok (we can overwrite different types as long as the arr type is included)
     techsArr[0] = 4; // number -> number - ok
@@ -21,26 +19,27 @@ const Arrays = () => {
     // bands.push(1); // error
     bands.push('The Police'); // ok
 };
-exports.Arrays = Arrays;
 // Tuples 
-const Tuples = () => {
-    // Tuples - define length in an array and specific order of items 
+export const Tuples = () => {
+    // tuples - define length in an array and specific order of items 
     let northArrowTuple = ['N', 'E', 'S', 'W', 0];
     let southArrowTuple = ['S', 'W', 'N', 'E', 1];
-    // let southArrowTupleShort: [string, string, string, string] = ['S', 'W', 'N', 'E', 1]; 
+    // let southArrowTupleShort: [string, string, string, string] = ['S', 'W', 'N', 'E', 1]; // error - initializer value does not match tuple type  
     // assign tuple to a mixed array and vice versa
-    // mixedArr = northArrowTuple; // ok
+    let mixedArr = [1, 'two', 3, 'four'];
+    mixedArr = northArrowTuple; // ok - northArrowTuple is a valid array of strs and nums
     // northArrowTuple = mixedArr; // error  
     // assign tuple to tuple
-    southArrowTuple = southArrowTuple; // ok
+    southArrowTuple = southArrowTuple; // ok - both tuples have the same type definition
     // southArrowTuple = southArrowTupleShort; // error - tuple types are not matching 
     // reassign tuple items
     // northArrowTuple[0] = 0; // error - item[0] only accepts string as value
     northArrowTuple[0] = 'S'; // ok
-    // northArrowTuple[5] = 0; // error - array is out of bounds, cannot assign to type undefined
+    // reference out of bounds tuple items
+    // northArrowTuple[5] = 0; // error - item at [5] is undefined
 };
-exports.Tuples = Tuples;
-const Objects = () => {
+// Objects
+export const Objects = () => {
     // Objects
     // testing object type
     let myObj; // type obj
@@ -58,9 +57,8 @@ const Objects = () => {
     // exampleObj.prop1 = 4; // error - cannot change type inferred on obj/prop init (prop1: 'name' -> string) 
     exampleObj.prop2 = false;
 };
-exports.Objects = Objects;
 // Interface
-const Interface = () => {
+export const Interface = () => {
     const nirvana = {
         // name?: 'Nirvana',
         active: false,
@@ -75,11 +73,50 @@ const Interface = () => {
     };
     // test out interface and type narrowing 
     console.log(greetBand2(nirvana));
+    // Class Implementation:
+    // class FullTimeEmployee implements Employee {
+    //   // Implement properties and methods here
+    // }
+    // Type Annotations and Interface Usage
+    function printPerson(person) {
+        console.log(`Name: ${person.firstName} ${person.lastName}, Age: ${person.age}`);
+    }
 };
-exports.Interface = Interface;
-// Enum type
-const Enum = () => {
-    // Enum
+// Enum
+export const Enum = () => {
+    // Numeric enums - inferred num value (start from 0), incrementing  
+    // infered values to enum members 
+    let GraphicsSettings;
+    (function (GraphicsSettings) {
+        GraphicsSettings[GraphicsSettings["Low"] = 0] = "Low";
+        GraphicsSettings[GraphicsSettings["Medium"] = 1] = "Medium";
+        GraphicsSettings[GraphicsSettings["High"] = 2] = "High";
+        GraphicsSettings[GraphicsSettings["VeryHigh"] = 3] = "VeryHigh"; // 3
+    })(GraphicsSettings || (GraphicsSettings = {}));
+    console.log(GraphicsSettings.Low, GraphicsSettings.VeryHigh);
+    // explicitly define first, infer other enum member values
+    let CountEnum;
+    (function (CountEnum) {
+        CountEnum[CountEnum["one"] = 1] = "one";
+        CountEnum[CountEnum["two"] = 2] = "two";
+        CountEnum[CountEnum["three"] = 3] = "three";
+        CountEnum[CountEnum["four"] = 4] = "four"; // 4
+    })(CountEnum || (CountEnum = {}));
+    // utilize single enum item 
+    const selectNum = (numbers) => {
+        return `selected num is: ${numbers}`;
+    };
+    console.log(selectNum(CountEnum.one));
+    // utilize all items in enum 
+    const countTo4 = (numbers) => {
+        numbers.forEach(item => {
+            console.log(item);
+        });
+    };
+    const numbersToIncludeInCounting = [CountEnum.one, CountEnum.two, CountEnum.three, CountEnum.four];
+    countTo4(numbersToIncludeInCounting);
+    // String enums - no auto increment
+    // explicitly assign values to enum members 
     let GeographicDirections;
     (function (GeographicDirections) {
         GeographicDirections["North"] = "0\u00B0";
@@ -87,9 +124,65 @@ const Enum = () => {
         GeographicDirections["South"] = "180\u00B0";
         GeographicDirections["West"] = "270\u00B0";
     })(GeographicDirections || (GeographicDirections = {}));
+    // enum member as type annotation to func param
     const findDirection = (direction) => {
         return `We are heading ${direction}`;
     };
-    console.log(findDirection(GeographicDirections.North));
+    console.log(findDirection(GeographicDirections.South));
+    // return a specific enum member
+    const getNorth = (directions) => {
+        return `North is this way: ${directions.North}`;
+    };
+    console.log(getNorth(GeographicDirections));
+    console.log('computedValue: ', 3 /* computedEnum.sumOneTwo */);
+    // Enum Member Types - access enum members as both types and values 
+    let enumTypesAndValues;
+    (function (enumTypesAndValues) {
+        enumTypesAndValues[enumTypesAndValues["yes"] = 1] = "yes";
+        enumTypesAndValues[enumTypesAndValues["no"] = 0] = "no"; // no - 0
+    })(enumTypesAndValues || (enumTypesAndValues = {}));
+    const storeType = enumTypesAndValues;
+    const storeValue = enumTypesAndValues.yes;
+    console.log(storeType); // value - 1
+    console.log(storeValue); // type - {0: 'no', 1: 'yes', yes: 1, no: 0} - When TypeScript compiles this enum to JavaScript, it generates an object where each enum member is mapped to its value and vice versa. This allows you to look up the value of an enum member using its name and vice versa.
+    // Reverse Mapping - Numeric enums have reverse mappings, which allow you to get the enum member name from its value.
+    let Status;
+    (function (Status) {
+        Status[Status["Active"] = 0] = "Active";
+        Status[Status["Inactive"] = 1] = "Inactive";
+        Status["Default"] = "default"; // str 
+    })(Status || (Status = {}));
+    let statusName = Status[0]; // "Active" - Status at index 0 (only num type can serve as index [0])
+    console.log('reverse mapping numeric enum:', statusName);
+    // console.log('reverse mapping numeric enum:', Status['default']); // error - only works with num types  
+    // Enum as object - acces enum's like obj values
+    let Color;
+    (function (Color) {
+        Color[Color["Red"] = 1] = "Red";
+        Color[Color["Green"] = 2] = "Green";
+        Color[Color["Blue"] = 3] = "Blue";
+    })(Color || (Color = {}));
+    let colorValue = Color.Red; // 0
+    let colorName = Color[0]; // "Red"
+    // Constant Value Checking: Enums provide a way to define a limited set of valid values for a variable.
+    let Size;
+    (function (Size) {
+        Size[Size["Small"] = 0] = "Small";
+        Size[Size["Medium"] = 1] = "Medium";
+        Size[Size["Large"] = 2] = "Large";
+    })(Size || (Size = {}));
+    function chooseSize(size) {
+        // ...
+    }
+    chooseSize(Size.Medium);
+    // Enum Declaration Merging: Enums can be extended using declaration merging to add more members.
+    let Fruit;
+    (function (Fruit) {
+        Fruit[Fruit["Apple"] = 1] = "Apple";
+        Fruit[Fruit["Banana"] = 2] = "Banana";
+    })(Fruit || (Fruit = {}));
+    (function (Fruit) {
+        Fruit[Fruit["Orange"] = 0] = "Orange";
+        Fruit[Fruit["Mango"] = 1] = "Mango";
+    })(Fruit || (Fruit = {}));
 };
-exports.Enum = Enum;

@@ -1,7 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Functions = void 0;
 // TS functions
-const Functions = () => {
+export const Functions = () => {
 };
-exports.Functions = Functions;

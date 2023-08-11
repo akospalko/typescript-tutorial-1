@@ -1,7 +1,7 @@
-import { Functions } from "./Functions";
-import { Arrays, Tuples, Enum, Objects, Interface } from "./ObjectTypes";
-import { PrimitiveTypes } from "./PrimitiveTypes";
-import { Type, TypeAliases } from "./Type";
+import { Arrays, Tuples, Enum, Objects, Interface } from "./ObjectTypes.js";
+import { Functions } from "./Functions.js";
+import { PrimitiveTypes } from "./PrimitiveTypes.js";
+import { TypeAliases } from "./TypeAliases.js";
 
 // INTRO
 console.log('Welcome to TS');
@@ -16,11 +16,8 @@ Interface()
 Enum()
 // Functions
 Functions()
-// Type
-Type()
+// Type aliases
 TypeAliases()
-
-
 
 
 /* Learned about:

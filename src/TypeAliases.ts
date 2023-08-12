@@ -40,4 +40,21 @@ export const TypeAliases = ():void => {
   let age: stringOrNumber = 5;
   age = 'five'
   // age = false // error - no bool allowed
+
+
+  // use one type alias in another
+  type AuthorBio = {
+    name: string,
+    age: stringOrNumber // ok - string | number  
+    //...
+  }
+  
+  type UserID = stringOrNumber // ok
+  interface PostID {
+    id: stringOrNumber, // ok - we can assign type to an interface prop
+    name: String,
+    age: number
+  }
+  // assign type to interface - error 
+  // interface PostID = stringOrNumber; // error - we cannot assign type to an interface 
 } 

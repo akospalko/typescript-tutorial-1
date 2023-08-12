@@ -38,6 +38,25 @@ export const Tuples = () => {
     // reference out of bounds tuple items
     // northArrowTuple[5] = 0; // error - item at [5] is undefined
 };
+// ----------Objects----------
+export const Objects = () => {
+    // Objects
+    // testing object type
+    let myObj; // type obj
+    myObj = []; // ok - arr is a valid obj type 
+    console.log(typeof myObj);
+    myObj = {}; // ok - obj literal
+    console.log(typeof myObj);
+    // obj literal with inferred types
+    const exampleObj = {
+        prop1: 'name',
+        prop2: true
+    };
+    // reassigning inferred obj literal types 
+    exampleObj.prop1 = 'Rick';
+    // exampleObj.prop1 = 4; // error - cannot change type inferred on obj/prop init (prop1: 'name' -> string) 
+    exampleObj.prop2 = false;
+};
 // ----------Interface----------
 export const Interface = () => {
     const nirvana = {

@@ -1,23 +1,38 @@
-import { Arrays, Tuples, Enum, Objects, Interface } from "./ObjectTypes.js";
+import { Arrays, Tuples, Enum, Interface } from "./ObjectTypes.js";
 import { Functions } from "./Functions.js";
 import { PrimitiveTypes } from "./PrimitiveTypes.js";
 import { TypeAliases } from "./TypeAliases.js";
+import { Objects, Any } from "./OtherTypes.js";
+import { LiteralType } from "./AdvancedTypes.js";
 
 // INTRO
 console.log('Welcome to TS');
 
 // Chapters/Modules
-PrimitiveTypes()
+// PrimitiveTypes()
+
 // Object types
-Arrays()
-Tuples()
-Objects()
-Interface()
-Enum()
+// Arrays()
+// Tuples()
+// Interface()
+// Enum()
+
 // Functions
 Functions()
+
 // Type aliases
-TypeAliases()
+// TypeAliases()
+
+// Other types
+// Objects()
+// Any()
+
+
+// Advanced types
+// LiteralType()
+
+
+
 
 
 /* Learned about:

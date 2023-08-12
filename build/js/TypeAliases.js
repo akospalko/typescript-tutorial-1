@@ -23,5 +23,6 @@ export const TypeAliases = () => {
     console.log(greetBand(thebeatles));
     let age = 5;
     age = 'five';
-    // age = false // error - no bool allowed
+    // assign type to interface - error 
+    // interface PostID = stringOrNumber; // error - we cannot assign type to an interface 
 };

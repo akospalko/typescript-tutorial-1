@@ -30,3 +30,41 @@ export const Any = () => {
     obj = 'hello';
     const n = obj;
 };
+// ----------Never----------
+export const Never = () => {
+    // Throwing errors
+    const createError = (errorMsg) => {
+        throw new Error(errorMsg);
+    };
+    // Infinite loops
+    const infinite = () => {
+        let i = 0;
+        while (true) {
+            i++;
+            // Code that never stops executing
+            if (i > 100)
+                break; // comment out break line to achieve - :never return type
+        }
+    };
+    // Create custom type guard for type narrowing 
+    const checkInputType = (checkedType, value) => {
+        return typeof value === checkedType ? true : false; // e.g. typeof 5 === number
+    };
+    // Type narrowing
+    const numberOrString = (value) => {
+        if (checkInputType('number', value))
+            return 'number';
+        if (checkInputType('string', value))
+            return 'string';
+        return createError('This should never happen'); // this explicit return is required to handle a potentional undefined case
+    };
+    numberOrString(45);
+    // type compatibility with never 
+    // assign other type to never
+    let neverType;
+    // neverType = 45; // error - cannot assign other type to never 
+    // neverType = 'never going to work'; // error 
+    // assign never to other type
+    let otherType;
+    //   otherType = neverType; // error
+};

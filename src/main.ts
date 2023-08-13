@@ -4,35 +4,31 @@ import { PrimitiveTypes } from "./PrimitiveTypes.js";
 import { TypeAliases } from "./TypeAliases.js";
 import { Objects, Any } from "./OtherTypes.js";
 import { LiteralType } from "./AdvancedTypes.js";
+import { TypeAssertions, NonNullAssertion } from "./TypeAssertions.js";
 
 // INTRO
 console.log('Welcome to TS');
 
 // Chapters/Modules
+// ----------Primitive types----------
 // PrimitiveTypes()
-
-// Object types
+// ----------Object types----------
 // Arrays()
 // Tuples()
 // Interface()
 // Enum()
-
-// Functions
-Functions()
-
-// Type aliases
+// ----------Functions----------
+  //  Functions()
+// ----------Type aliases----------
 // TypeAliases()
-
-// Other types
+// ----------Other types----------
 // Objects()
 // Any()
-
-
-// Advanced types
+// ----------Advanced types----------
 // LiteralType()
-
-
-
+// ----------Type assertion----------
+TypeAssertions()
+NonNullAssertion()
 
 
 /* Learned about:

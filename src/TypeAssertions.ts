@@ -68,8 +68,6 @@ export const TypeAssertions = () => {
 export const NonNullAssertion = (): void => {
   // Suppose we have an HTML element with an id "result"
   let resultElement: HTMLElement | null = document.getElementById("result");
-
   // If we're confident that the element exists, we can use a non-null assertion
   resultElement!.textContent = "Hello, TypeScript!";
-
 }

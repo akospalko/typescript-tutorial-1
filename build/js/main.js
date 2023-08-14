@@ -1,5 +1,5 @@
-import { TypeAssertions, NonNullAssertion } from "./TypeAssertions.js";
-// INTRO
+import { Classes, ConstructorParams } from "./Classes.js";
+// Welcome
 console.log('Welcome to TS');
 // Chapters/Modules
 // ----------Primitive types----------
@@ -19,8 +19,11 @@ console.log('Welcome to TS');
 // ----------Advanced types----------
 // LiteralType()
 // ----------Type assertion----------
-TypeAssertions();
-NonNullAssertion();
+// TypeAssertions()
+// NonNullAssertion()
+// ----------Classes----------
+Classes();
+ConstructorParams();
 /* Learned about:
   union (|)
   object

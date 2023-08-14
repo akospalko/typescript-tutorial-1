@@ -5,8 +5,9 @@ import { TypeAliases } from "./TypeAliases.js";
 import { Objects, Any } from "./OtherTypes.js";
 import { LiteralType } from "./AdvancedTypes.js";
 import { TypeAssertions, NonNullAssertion } from "./TypeAssertions.js";
+import { Classes, ConstructorParams } from "./Classes.js";
 
-// INTRO
+// Welcome
 console.log('Welcome to TS');
 
 // Chapters/Modules
@@ -27,8 +28,12 @@ console.log('Welcome to TS');
 // ----------Advanced types----------
 // LiteralType()
 // ----------Type assertion----------
-TypeAssertions()
-NonNullAssertion()
+// TypeAssertions()
+// NonNullAssertion()
+// ----------Classes----------
+Classes()
+ConstructorParams()
+
 
 
 /* Learned about:

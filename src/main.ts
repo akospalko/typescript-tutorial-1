@@ -5,7 +5,7 @@ import { TypeAliases } from "./TypeAliases.js";
 import { Objects, Any } from "./OtherTypes.js";
 import { LiteralType } from "./AdvancedTypes.js";
 import { TypeAssertions, NonNullAssertion } from "./TypeAssertions.js";
-import { Classes, ConstructorParams } from "./Classes.js";
+import { Classes, StaticMembers, ConstructorParams, ClassWithInterface } from "./Classes.js";
 
 // Welcome
 console.log('Welcome to TS');
@@ -32,8 +32,9 @@ console.log('Welcome to TS');
 // NonNullAssertion()
 // ----------Classes----------
 Classes()
+ClassWithInterface()
 ConstructorParams()
-
+StaticMembers()
 
 
 /* Learned about:

@@ -1,4 +1,4 @@
-import { Classes, StaticMembers, ConstructorParams, ClassWithInterface } from "./Classes.js";
+import { BasicClass, StaticMembers, ConstructorParams, ClassWithInterface, AccessModifiers, GetterAndSetters } from "./Classes.js";
 // Welcome
 console.log('Welcome to TS');
 // Chapters/Modules
@@ -22,10 +22,12 @@ console.log('Welcome to TS');
 // TypeAssertions()
 // NonNullAssertion()
 // ----------Classes----------
-Classes();
+BasicClass();
 ClassWithInterface();
 ConstructorParams();
 StaticMembers();
+AccessModifiers();
+GetterAndSetters();
 /* Learned about:
   union (|)
   object

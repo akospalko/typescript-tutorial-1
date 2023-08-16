@@ -5,10 +5,16 @@ import { TypeAliases } from "./TypeAliases.js";
 import { Objects, Any } from "./OtherTypes.js";
 import { LiteralType } from "./AdvancedTypes.js";
 import { TypeAssertions, NonNullAssertion } from "./TypeAssertions.js";
-import { Classes, StaticMembers, ConstructorParams, ClassWithInterface } from "./Classes.js";
-
-// Welcome
-console.log('Welcome to TS');
+import { 
+  BasicClass,
+  StaticMembers,
+  ConstructorParams,
+  ClassWithInterface,
+  AccessModifiers,
+  GetterAndSetters 
+} from "./Classes.js";
+  // Welcome
+  console.log('Welcome to TS');
 
 // Chapters/Modules
 // ----------Primitive types----------
@@ -31,11 +37,12 @@ console.log('Welcome to TS');
 // TypeAssertions()
 // NonNullAssertion()
 // ----------Classes----------
-Classes()
+BasicClass()
 ClassWithInterface()
 ConstructorParams()
 StaticMembers()
-
+AccessModifiers()
+GetterAndSetters()
 
 /* Learned about:
   union (|)

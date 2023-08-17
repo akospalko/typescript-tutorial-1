@@ -280,7 +280,6 @@ class Account2 {
   console.log(alexander.getLastName);
   console.log(alexander.setAge = 30);
   console.log(alexander.getAge);
-  
 }
 
 // ----------Constructor Params---------- 

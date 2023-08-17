@@ -13,6 +13,7 @@ import {
   AccessModifiers,
   GetterAndSetters 
 } from "./Classes.js";
+import { IndexSignatures, KeyofOperator } from "./IndexSignatures.js";
   // Welcome
   console.log('Welcome to TS');
 
@@ -37,18 +38,12 @@ import {
 // TypeAssertions()
 // NonNullAssertion()
 // ----------Classes----------
-BasicClass()
-ClassWithInterface()
-ConstructorParams()
-StaticMembers()
-AccessModifiers()
-GetterAndSetters()
-
-/* Learned about:
-  union (|)
-  object 
-  optional property - ?  
-  type vs interface
-  type narrowing
-  object types: array type - string[] , (stirng | number)[], enums, tuple,
-*/
+// BasicClass()
+// ClassWithInterface()
+// ConstructorParams()
+// StaticMembers()
+// AccessModifiers()
+// GetterAndSetters()
+// ----------Index signatures----------
+IndexSignatures()
+KeyofOperator()

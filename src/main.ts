@@ -13,8 +13,10 @@ import {
   AccessModifiers,
   GetterAndSetters 
 } from "./Classes.js";
-import { IndexSignatures, KeyofOperator } from "./IndexSignatures.js";
-  // Welcome
+// import { IndexSignatures, KeyofOperator } from "./IndexSignatures.js";
+import { Generics } from "./Generics.js";
+
+// Welcome
   console.log('Welcome to TS');
 
 // Chapters/Modules
@@ -45,5 +47,7 @@ import { IndexSignatures, KeyofOperator } from "./IndexSignatures.js";
 // AccessModifiers()
 // GetterAndSetters()
 // ----------Index signatures----------
-IndexSignatures()
-KeyofOperator()
+// IndexSignatures()
+// KeyofOperator()
+// ----------Generics----------
+Generics()

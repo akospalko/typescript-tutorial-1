@@ -15,6 +15,7 @@ import {
 } from "./Classes.js";
 // import { IndexSignatures, KeyofOperator } from "./IndexSignatures.js";
 import { Generics } from "./Generics.js";
+import { UtilityTypes } from "./UtilityTypes.js";
 
 // Welcome
   console.log('Welcome to TS');
@@ -50,4 +51,6 @@ import { Generics } from "./Generics.js";
 // IndexSignatures()
 // KeyofOperator()
 // ----------Generics----------
-Generics()
+// Generics()
+// ----------Utility types----------
+UtilityTypes()

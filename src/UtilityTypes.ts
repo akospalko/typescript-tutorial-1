@@ -1,8 +1,8 @@
+console.log('----------Utility Types----------');
 //----------Utility types----------
 export const UtilityTypes = ():void => {
   /**
   useful for common type transformations - allows us to pass only a part of an obj/interface  
-  Partial - makes all props of a type optional -> useful when you need to create only a subset of the props of an existing style 
   Required - all type props must be provided
   Readonly - cannot modify prop
   Record - define an obj type with a spec key type and value type { key: value }
@@ -10,6 +10,8 @@ export const UtilityTypes = ():void => {
   */
   
   //----------Partial----------
+  console.log('----------Partial----------');
+  // #1
   interface Assignment {
     studentId: string,
     title: string,
@@ -28,6 +30,38 @@ export const UtilityTypes = ():void => {
   }
   const assignGraded: Assignment = updateAssignment(assign1, { grade: 76 })
   console.log(assignGraded);
+
+  // #2
+  type todoType = {
+    task: string,
+    description: string
+  }
+
+  const updateTask = (todoItem: todoType, taskToUpdate: Partial<todoType>): todoType => {
+    return { ...todoItem, ...taskToUpdate }
+  }
+
+  const todo1 = {
+    task: 'to do the shopping',
+    description: 'buy melon, joghurt, milk, cereal and ice cream.'
+  }
+
+  const todo1Update = {
+    description: 'buy beer, salted peanuts, six pack of bubbling water'
+  }
+  console.log(updateTask(todo1, todo1Update)); // NOTE: todo1Update is utilizing the todoType type, but only partially (we only update the description prop)
+
+  //----------Required----------
+  console.log('----------Required----------');
+  // #1 
+  interface NumberInterface {
+    a?: number,
+    b?: number
+  } 
+
+  const obj1: NumberInterface = { a: 4 }; // ok // NOTE: interface props are optional -> only a single prop is provided
+  // const obj2: Required<NumberInterface> = {a: 4} // error // NOTE: even though interface props are optional (a?, b?) Require<> makes it mandatory 
+  const obj3: Required<NumberInterface> = {a: 4, b: 5} // ok // all props are provided 
 
   //----------Required & Readonly----------
   const recordAssignment = (assign: Required<Assignment>): Assignment => {
@@ -108,6 +142,7 @@ export const UtilityTypes = ():void => {
   }
   
   type newAssign = ReturnType<typeof createNewAssign>
+  console.log(typeof createNewAssign);
   const tsAssign: newAssign = createNewAssign("Utility Types", 100);
   console.log(tsAssign);
   

@@ -274,15 +274,55 @@ export const UtilityTypes = ():void => {
   const tsAssign: newAssign = createNewAssign("Utility Types", 100);
   console.log(tsAssign);
   // #2
-  
-  
+  // #2.1 original (before implementing ReturnType<>)
+  const sendData = (a: number, b: number) => {
+    return {
+      a: `${a}`,
+      b: `${b}`
+    }
+  }
+
+  // data type
+  type Data = {
+    a: string
+    b: string
+  }
+
+  // log data
+  let logData = (data: Data) => {
+    console.log(JSON.stringify(data))
+  }
+
+  const stringifyNumbers = sendData(4, 5);
+  logData(stringifyNumbers);
+
+  //#1.2 implementing ReturnType
+  type Data2 = ReturnType<typeof sendData> // if typeof sendData is function -> store func return type // instead of setting up a type from scratch we create a type using derived value from functions return type
+  logData = (data: Data2) => {
+    console.log(JSON.stringify(data));
+  }
+  logData(stringifyNumbers); // ok - applied ReturnType, simplified it by applying type i  
+
+
   //----------Parameters----------
   console.log('----------Parameters----------');
+  // #1 
   type AssignParams = Parameters<typeof createNewAssign> 
   const assignArgs: AssignParams = ["Generics", 100]
   const tsAssign2: newAssign = createNewAssign(...assignArgs)
   console.log(tsAssign2);
-  
+  // #2
+  type MyFunction = (a: number, b: string) => boolean;
+  type FunctionInfo = {
+    parameters: Parameters<MyFunction>; // returns function parameter types as a tuple 
+    returnType: ReturnType<MyFunction>;
+  };
+
+  const myFunctionInfo: FunctionInfo = {
+    parameters: [123, "hello"],
+    returnType: true,
+  };
+
   //----------Awaited----------
   interface User {
     id: number,

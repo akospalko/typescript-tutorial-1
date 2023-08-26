@@ -317,11 +317,24 @@ export const UtilityTypes = ():void => {
     parameters: Parameters<MyFunction>; // returns function parameter types as a tuple 
     returnType: ReturnType<MyFunction>;
   };
+  // #3
+  const concatVals = (a: string, b: string): string => {
+    return a + b; 
+  }
+
+  type aType = Parameters<typeof concatVals>[0] // refer to the first param
+  type bType = Parameters<typeof concatVals>[1] // second param
+
+  let a:aType = '5' 
+  let b:aType = '9'
+
+  concatVals(a, b)
 
   const myFunctionInfo: FunctionInfo = {
     parameters: [123, "hello"],
     returnType: true,
   };
+
 
   //----------Awaited----------
   interface User {

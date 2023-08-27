@@ -335,6 +335,24 @@ export const UtilityTypes = ():void => {
     returnType: true,
   };
 
+  //----------InstanceType----------
+  // 1
+  class Coordinates {
+    x: number = 0;
+    y: number = 0;
+  }
+
+  // store class instance as a type  
+  type CoordinatesType = InstanceType<typeof Coordinates>
+
+  // apply class instance type to an obj literal
+  const coordinatesObj: CoordinatesType = {
+    x: 1,
+    y: 2,
+    // z: 3 // error - instance type does not have z prop
+  } 
+
+  // type T1 = InstanceType<string> // error - <types> should be a constr func / class inst  
 
   //----------Awaited----------
   interface User {
